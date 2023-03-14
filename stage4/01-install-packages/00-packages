@@ -1,0 +1,20 @@
+python3-pygame
+python3-tk thonny
+python3-pgzero
+python3-serial
+python3-pip
+python3-numpy
+pypy
+rc-gui
+tree
+libgl1-mesa-dri libgles1 libgles2-mesa xcompmgr
+piclone
+pigpio python3-pigpio raspi-gpio python3-rpi.gpio
+python3-spidev
+python3-twython
+python3-smbus
+python3-flask
+piwiz
+ffmpeg
+vlc
+rpi-imager
