@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=hamonikr-theme
+Comment=Apply hamonikr-theme
+Exec=/usr/local/bin/hamonikr-theme-setting winstyle
+Terminal=false
+Type=Application
+StartupNotify=false
+X-GNOME-Autostart-Delay=1
