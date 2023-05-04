@@ -43,8 +43,8 @@ install -m 600 -v -o 1000 -g 1000 files/mimeapps.list "${ROOTFS_DIR}/home/pi/.co
 install -m 644 -v files/75source-profile "${ROOTFS_DIR}/etc/X11/Xsession.d/"
 
 # update lightdm.conf
-sed 's/#greeter-session=example-gtk-gnome/greeter-session=slick-greeter/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
-sed 's/#greeter-hide-users=false/greeter-hide-users=false/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
+sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=slick-greeter/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
+sed -i 's/#greeter-hide-users=false/greeter-hide-users=false/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 
 on_chroot << EOF
 	SUDO_USER="${FIRST_USER_NAME}" systemctl enable NetworkManager.service
