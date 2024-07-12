@@ -1,4 +1,0 @@
-    # HamoniKR APT
-    deb [arch=arm64] http://repo.hamonikr.org/ bookworm main
-    #deb-src [arch=arm64] http://repo.hamonikr.org/ bookworm main
-    

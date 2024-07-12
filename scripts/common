@@ -9,7 +9,7 @@ bootstrap(){
 
 	export http_proxy=${APT_PROXY}
 
-	BOOTSTRAP_ARGS+=(--arch armhf)
+	BOOTSTRAP_ARGS+=(--arch arm64)
 	BOOTSTRAP_ARGS+=(--components "main,contrib,non-free")
 	BOOTSTRAP_ARGS+=(--keyring "${STAGE_DIR}/files/raspberrypi.gpg")
 	BOOTSTRAP_ARGS+=(--exclude=info)
