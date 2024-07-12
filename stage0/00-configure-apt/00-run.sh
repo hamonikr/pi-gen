@@ -28,7 +28,6 @@ gpg --export F8D2585B8783D481 | sudo tee ${ROOTFS_DIR}/etc/apt/trusted.gpg.d/deb
 gpg --export 54404762BBB6E853 | sudo tee ${ROOTFS_DIR}/etc/apt/trusted.gpg.d/debian-archive-bullseye-security.gpg > /dev/null 2>&1
 gpg --export BDE6D2B9216EC7A8 | sudo tee ${ROOTFS_DIR}/etc/apt/trusted.gpg.d/debian-archive-bookworm-security.gpg > /dev/null 2>&1
 
-
 on_chroot <<- \EOF
 	ARCH="$(dpkg --print-architecture)"
 	if [ "$ARCH" = "armhf" ]; then
@@ -36,8 +35,6 @@ on_chroot <<- \EOF
 	elif [ "$ARCH" = "arm64" ]; then
 		dpkg --add-architecture armhf
 	fi
-
 	apt-get update
 	apt-get dist-upgrade -y
-	apt-get upgrade -y
 EOF
