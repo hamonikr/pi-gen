@@ -49,3 +49,4 @@ otg_mode=1
 dtoverlay=dwc2,dr_mode=host
 
 [all]
+usb_max_current_enable=1
