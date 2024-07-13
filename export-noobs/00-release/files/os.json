@@ -2,7 +2,7 @@
     "description": "NOOBS_DESCRIPTION",
     "kernel": "KERNEL",
     "name": "NOOBS_NAME",
-    "password": "hamonikr",
+    "password": "raspberry",
     "release_date": "UNRELEASED",
     "supported_models": [
         "Pi Zero 2",
