@@ -36,6 +36,7 @@ barrier
 cinnamon-desktop-environment
 cinnamon-l10n
 cockpit
+code
 dconf-cli
 default-jdk
 fonts-nanum
@@ -69,3 +70,5 @@ speech-dispatcher
 ukui-greeter
 vim
 xpad
+# new version from hamonikr repo
+piwiz

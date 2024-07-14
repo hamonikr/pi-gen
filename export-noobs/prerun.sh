@@ -34,7 +34,13 @@ mount "$BOOT_DEV" "${STAGE_WORK_DIR}/rootfs/boot"
 
 ln -sv "/lib/systemd/system/apply_noobs_os_config.service" "$ROOTFS_DIR/etc/systemd/system/multi-user.target.wants/apply_noobs_os_config.service"
 
-KERNEL_VER="$(zgrep -oPm 1 "Linux version \K(.*)$" "${STAGE_WORK_DIR}/rootfs/usr/share/doc/raspberrypi-kernel/changelog.Debian.gz" | cut -f-2 -d.)"
+# 수정된 커널 버전 가져오기
+if [ -f "${STAGE_WORK_DIR}/rootfs/usr/share/doc/raspberrypi-kernel/changelog.Debian.gz" ]; then
+    KERNEL_VER="$(zgrep -oPm 1 "Linux version \K(.*)$" "${STAGE_WORK_DIR}/rootfs/usr/share/doc/raspberrypi-kernel/changelog.Debian.gz" | cut -f-2 -d.)"
+else
+    KERNEL_VER="$(zgrep -oPm 1 "linux \(1:(.*)$" "${STAGE_WORK_DIR}/rootfs/usr/share/doc/linux-image-rpi-v8/changelog.Debian.gz" | sed 's|.*linux (1:||' | cut -d'-' -f1,2 -d.)"
+fi
+
 echo "$KERNEL_VER" > "${STAGE_WORK_DIR}/kernel_version"
 
 bsdtar --numeric-owner --format gnutar -C "${STAGE_WORK_DIR}/rootfs/boot" -cpf - . | xz -T0 > "${NOOBS_DIR}/boot.tar.xz"
