@@ -61,7 +61,8 @@ on_chroot << EOF
 	SUDO_USER="${FIRST_USER_NAME}" systemctl enable NetworkManager.service
 
 	if [ -f "/usr/bin/cinnamon-session" ] && [ -f "/etc/hamonikr/info" ]; then
-		SUDO_USER="${FIRST_USER_NAME}"update-alternatives --set x-session-manager /usr/bin/cinnamon-session
+		echo "Set cinnamon as default..."
+		SUDO_USER="${FIRST_USER_NAME}" update-alternatives --set x-session-manager /usr/bin/cinnamon-session
 	fi
 
 EOF
