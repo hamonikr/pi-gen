@@ -7,7 +7,7 @@ if [ -f "${ROOTFS_DIR}/etc/lightdm/lightdm.conf" ]; then
 		sed -i 's/greeter-hide-users=.*$/greeter-hide-users=false/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/greeter-session=.*$/greeter-session=ukui-greeter/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/user-session=.*$/user-session=cinnamon/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
-		# sed -i 's/autologin-user=.*$/autologin-user=/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
+		sed -i 's/autologin-user=.*$/autologin-user=/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/autologin-session=.*$/autologin-sessio=cinnamon/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 	else
 		echo "Not detect HamoniKR OS... lightdm step"
