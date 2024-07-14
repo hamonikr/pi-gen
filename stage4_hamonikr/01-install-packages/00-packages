@@ -35,6 +35,7 @@ asbru-cm
 barrier
 cinnamon-desktop-environment
 cinnamon-l10n
+cockpit
 dconf-cli
 default-jdk
 fonts-nanum
