@@ -1,7 +1,7 @@
-deb http://ftp.kaist.ac.kr/debian RELEASE main contrib non-free non-free-firmware
-deb http://ftp.kaist.ac.kr/debian-security RELEASE-security main contrib non-free non-free-firmware
-deb http://ftp.kaist.ac.kr/debian RELEASE-updates main contrib non-free non-free-firmware
+deb [arch=arm64] http://ftp.kaist.ac.kr/debian RELEASE main contrib non-free non-free-firmware
+deb [arch=arm64] http://ftp.kaist.ac.kr/debian-security RELEASE-security main contrib non-free non-free-firmware
+deb [arch=arm64] http://ftp.kaist.ac.kr/debian RELEASE-updates main contrib non-free non-free-firmware
 # Uncomment deb-src lines below then 'apt-get update' to enable 'apt-get source'
-#deb-src http://ftp.kaist.ac.kr/debian RELEASE main contrib non-free non-free-firmware
-#deb-src http://ftp.kaist.ac.kr/debian-security RELEASE-security main contrib non-free non-free-firmware
-#deb-src http://ftp.kaist.ac.kr/debian RELEASE-updates main contrib non-free non-free-firmware
+#deb-src [arch=arm64] http://ftp.kaist.ac.kr/debian RELEASE main contrib non-free non-free-firmware
+#deb-src [arch=arm64] http://ftp.kaist.ac.kr/debian-security RELEASE-security main contrib non-free non-free-firmware
+#deb-src [arch=arm64] http://ftp.kaist.ac.kr/debian RELEASE-updates main contrib non-free non-free-firmware

@@ -8,7 +8,7 @@ if [ -f "${ROOTFS_DIR}/etc/lightdm/lightdm.conf" ]; then
 		sed -i '/^[#]*greeter-show-manual-login=.*/ s/^.*$/greeter-show-manual-login=true/' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/greeter-session=.*$/greeter-session=ukui-greeter/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/user-session=.*$/user-session=cinnamon/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
-		sed -i 's/autologin-user=.*$/autologin-user=/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
+		# sed -i 's/autologin-user=.*$/autologin-user=/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/autologin-session=.*$/autologin-sessio=cinnamon/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 	else
 		echo "Not detect HamoniKR OS... lightdm step"
@@ -43,9 +43,9 @@ if [ -f "${ROOTFS_DIR}/etc/hamonikr/info" ] && [ -f "${ROOTFS_DIR}/usr/bin/zsh" 
 	chown 1000:1000 -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.*
 	chown 1000:1000 -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/*
 
-	# update rpi-first-boot-wizard
-	OWNER=$(cat ${ROOTFS_DIR}/etc/passwd | grep geoclue | cut -d':' -f3)
-	GROUP=$(cat ${ROOTFS_DIR}/etc/group | grep nogroup | cut -d':' -f3)
+	# TO-DO : Update rpi-first-boot-wizard
+	OWNER=$(cat ${ROOTFS_DIR}/etc/passwd | grep rpi-first-boot-wizard | cut -d':' -f3)
+	GROUP=$(cat ${ROOTFS_DIR}/etc/passwd | grep rpi-first-boot-wizard | cut -d':' -f4)
 	if [ -n "$OWNER" ] && [ -n "$OWGROUP" ]; then
 		echo "Update setting for rpi-first-boot-wizard ..."
 		echo "OWNER : $OWNER"
@@ -61,7 +61,7 @@ if [ -f "${ROOTFS_DIR}/etc/hamonikr/info" ] && [ -f "${ROOTFS_DIR}/usr/bin/zsh" 
 	cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.hamonikr ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
 	cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.zshrc ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
 
-	chown $OWNER:$GROUP -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.*
+	chown $OWNER:$GROUP -R ${ROOTFS_DIR}/home/rpi-first-boot-wizard/.*
 
 fi
 
