@@ -5,6 +5,7 @@ if [ -f "${ROOTFS_DIR}/etc/lightdm/lightdm.conf" ]; then
 	if [ -f "${ROOTFS_DIR}/etc/hamonikr/info" ]; then
 		echo "Update lightdm.conf..."
 		sed -i 's/greeter-hide-users=.*$/greeter-hide-users=false/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
+		sed -i '/^[#]*greeter-show-manual-login=.*/ s/^.*$/greeter-show-manual-login=true/' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/greeter-session=.*$/greeter-session=ukui-greeter/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/user-session=.*$/user-session=cinnamon/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
 		sed -i 's/autologin-user=.*$/autologin-user=/g' ${ROOTFS_DIR}/etc/lightdm/lightdm.conf
@@ -42,25 +43,25 @@ if [ -f "${ROOTFS_DIR}/etc/hamonikr/info" ] && [ -f "${ROOTFS_DIR}/usr/bin/zsh" 
 	chown 1000:1000 -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.*
 	chown 1000:1000 -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/*
 
-	# update-pi-first-boot-wizard
-	# OWNER=$(cat ${ROOTFS_DIR}/etc/passwd | grep rpi-first-boot-wizard | cut -d':' -f3)
-	# GROUP=$(cat ${ROOTFS_DIR}/etc/passwd | grep rpi-first-boot-wizard | cut -d':' -f4)
-	# if [ -n "$OWNER" ] && [ -n "$OWGROUP" ]; then
-	# 	echo "Update setting for rpi-first-boot-wizard ..."
-	# 	echo "OWNER : $OWNER"
-	# 	echo "GROUP : $GROUP"
-	# else
-	# 	echo "Can not detect rpi-first-boot-wizard in /etc/passwd ..."
-	# 	cat ${ROOTFS_DIR}/etc/passwd
-	# 	OWNER="rpi-first-boot-wizard"
-	# 	GROUP="65534"
-	# fi
-	# mkdir -pv ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
-	# cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.config ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
-	# cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.hamonikr ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
-	# cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.zshrc ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
+	# update rpi-first-boot-wizard
+	OWNER=$(cat ${ROOTFS_DIR}/etc/passwd | grep geoclue | cut -d':' -f3)
+	GROUP=$(cat ${ROOTFS_DIR}/etc/group | grep nogroup | cut -d':' -f3)
+	if [ -n "$OWNER" ] && [ -n "$OWGROUP" ]; then
+		echo "Update setting for rpi-first-boot-wizard ..."
+		echo "OWNER : $OWNER"
+		echo "GROUP : $GROUP"
+	else
+		echo "Can not detect rpi-first-boot-wizard in /etc/passwd ..."
+		# cat ${ROOTFS_DIR}/etc/passwd
+		OWNER="1000"
+		GROUP="1000"
+	fi
+	mkdir -pv ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
+	cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.config ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
+	cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.hamonikr ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
+	cp -av ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.zshrc ${ROOTFS_DIR}/home/rpi-first-boot-wizard/
 
-	# chown $OWNER:$GROUP -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.*
+	chown $OWNER:$GROUP -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.*
 
 fi
 
