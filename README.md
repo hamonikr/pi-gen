@@ -119,3 +119,17 @@ STAGE_LIST="stage0 stage1 stage2 stage3 stage4_hamonikr"
 * stage0 ~ stage2 단계를 진행할 경우 서버 버전용 OS 이미지가 생성됩니다.  
 * stage0 ~ stage4 단계를 진행할 경우 GUI 버전의 OS 이미지가 생성됩니다.  
 * stage5 단계는 third party나 추가적인 패키지를 설치하는 용도입니다.
+
+### 개발 속도를 높이기 위한 단계 건너뛰기
+
+ref : https://github.com/RPi-Distro/pi-gen
+
+특정 단계에서 작업하는 경우 권장되는 개발 프로세스는 다음과 같습니다.
+
+* EXPORT_* 파일이 들어 있는 디렉토리에 SKIP_IMAGES라는 파일을 추가합니다(현재 stage2, stage4, stage5).
+* 빌드하지 않을 단계에 SKIP 파일을 추가합니다. 예를 들어, 라이트 이미지를 기반으로 이미지를 구성하는 경우 3단계, 4단계 및 5단계에 추가할 수 있습니다.
+* 빌드를 실행해서 모든 단계를 구축합니다.
+* 이전에 성공적으로 구축된 단계에 SKIP 파일 추가
+* 마지막 단계 수정
+* 마지막 단계만 재구축(Rebuilding): `sudo CLEAN=1 ./build.sh`
+* 이미지에 만족하면 SKIP_IMAGEs 파일을 제거하고 이미지를 내보내 테스트할 수 있습니다.
