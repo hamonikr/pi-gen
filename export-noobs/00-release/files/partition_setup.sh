@@ -44,3 +44,4 @@ fi
 
 umount -lf /tmp/1
 umount -lf /tmp/2
+ls
