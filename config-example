@@ -1,17 +1,15 @@
 IMG_NAME="hamonikr-8-arm64"
 RELEASE="bookworm"
 DEPLOY_COMPRESSION="none"
-# if you want small size output image
 # DEPLOY_COMPRESSION="xz"
 COMPRESSION_LEVEL="9"
 LOCALE_DEFAULT="ko_KR.UTF-8"
 TARGET_HOSTNAME="hamonikr"
-KEBOARD_KEYMAP="us"
-KEYBOARD_LAYOUT="Korean - Korean (101/104-key compatible)"
+KEBOARD_KEYMAP="kr"
+KEYBOARD_LAYOUT="kr104"
 TIMEZONE_DEFAULT="Asia/Seoul"
 FIRST_USER_NAME="pi"
-DISABLE_FIRST_BOOT_USER_RENAME="0"
 FIRST_USER_PASS="hamonikr"
+DISABLE_FIRST_BOOT_USER_RENAME="0"
 ENABLE_SSH=1
-# customization stage
 STAGE_LIST="stage0 stage1 stage2 stage3 stage4_hamonikr"
