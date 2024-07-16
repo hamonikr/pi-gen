@@ -42,5 +42,5 @@ if [ -z "$restore" ]; then
   fi
 fi
 
-umount /tmp/1
-umount /tmp/2
+umount -lf /tmp/1
+umount -lf /tmp/2

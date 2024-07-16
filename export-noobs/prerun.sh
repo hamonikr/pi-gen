@@ -44,7 +44,7 @@ fi
 echo "$KERNEL_VER" > "${STAGE_WORK_DIR}/kernel_version"
 
 bsdtar --numeric-owner --format gnutar -C "${STAGE_WORK_DIR}/rootfs/boot" -cpf - . | xz -T0 > "${NOOBS_DIR}/boot.tar.xz"
-umount "${STAGE_WORK_DIR}/rootfs/boot"
+umount -lf "${STAGE_WORK_DIR}/rootfs/boot"
 bsdtar --numeric-owner --format gnutar -C "${STAGE_WORK_DIR}/rootfs" --one-file-system -cpf - . | xz -T0 > "${NOOBS_DIR}/root.tar.xz"
 
 unmount_image "${IMG_FILE}"

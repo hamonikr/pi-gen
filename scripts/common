@@ -46,7 +46,7 @@ unmount(){
 	fi
 
 	for i in {1..6}; do
-		if awk "\$2 ~ /^${DIR//\//\\/}/ {print \$2}" /etc/mtab | sort -r | xargs -r umount; then
+		if awk "\$2 ~ /^${DIR//\//\\/}/ {print \$2}" /etc/mtab | sort -r | xargs -r umount -lf; then
 			break
 		elif [ "$i" -eq 6 ]; then
 			log "Failed to unmount ${DIR}. Do not try to delete this directory while it contains mountpoints!"
