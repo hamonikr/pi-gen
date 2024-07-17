@@ -69,6 +69,8 @@ plymouth-theme-hamonikr
 slick-greeter
 speech-dispatcher
 ukui-greeter
-userconf-pi
 vim
 xpad
+# 라즈베리파이 저장소에 같은 이름의 패키지명이 있으므로, 설치 후 하모니카 패키지 확인 필요
+piwiz
+userconf-pi
