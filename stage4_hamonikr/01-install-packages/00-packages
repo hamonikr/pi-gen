@@ -1,15 +1,17 @@
 python3-pygame
-python3-tk thonny
+python3-tk 
+#thonny
 python3-pgzero
 python3-serial
-debian-reference-en dillo
+#debian-reference-en 
+#dillo
 raspberrypi-net-mods raspberrypi-ui-mods
 python3-pip
 python3-numpy
 alacarte rc-gui sense-hat
 tree
 libgl1-mesa-dri libgles1 libgles2-mesa xcompmgr
-geany
+#geany
 piclone
 python3-twython
 python3-flask
@@ -17,7 +19,7 @@ pprompt
 piwiz
 rp-prefapps
 ffmpeg
-vlc
+#vlc
 rpi-connect
 rpi-imager
 labwc
@@ -36,6 +38,7 @@ barrier
 cinnamon-desktop-environment
 cinnamon-l10n
 cockpit
+celluloid
 code
 dconf-cli
 default-jdk
@@ -71,6 +74,7 @@ speech-dispatcher
 ukui-greeter
 vim
 xpad
+xed
 # 라즈베리파이 저장소에 같은 이름의 패키지명이 있으므로, 설치 후 하모니카 패키지 확인 필요
 piwiz
 userconf-pi
