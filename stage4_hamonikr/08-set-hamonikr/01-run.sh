@@ -44,8 +44,8 @@ if [ -f "${ROOTFS_DIR}/etc/hamonikr/info" ] && [ -f "${ROOTFS_DIR}/usr/bin/zsh" 
 	chown 1000:1000 -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/*
 
 	# Replace rename-user command in userconf-pi package for HamoniKR OS specfic settings
-	echo "Replace rename-user cmd..."
-	install -D -m 755 -v files/rename-user /usr/bin/
+	# echo "Replace rename-user cmd..."
+	# install -D -m 755 -v files/rename-user /usr/bin/
 
 fi
 
@@ -62,4 +62,7 @@ on_chroot << EOF
 		SUDO_USER="${FIRST_USER_NAME}" plymouth-set-default-theme hamonikr-black
 		SUDO_USER="${FIRST_USER_NAME}" update-initramfs -u
 	fi
+
+	SUDO_USER="${FIRST_USER_NAME}" apt purge -y mousepad gedit
+
 EOF
