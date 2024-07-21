@@ -41,7 +41,6 @@ if [ -f "${ROOTFS_DIR}/etc/hamonikr/info" ] && [ -f "${ROOTFS_DIR}/usr/bin/zsh" 
 
 	echo "Update user home permission..."
 	chown 1000:1000 -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.*
-	chown 1000:1000 -R ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/*
 
 	# Replace rename-user command in userconf-pi package for HamoniKR OS specfic settings
 	# echo "Replace rename-user cmd..."
@@ -63,6 +62,12 @@ on_chroot << EOF
 		SUDO_USER="${FIRST_USER_NAME}" update-initramfs -u
 	fi
 
-	SUDO_USER="${FIRST_USER_NAME}" apt purge -y mousepad gedit
+	SUDO_USER="${FIRST_USER_NAME}" apt purge -y mousepad gedit orca openbox rp-bookshelf pcmanfm totem pidgin rp-prefapps malcontent-gui
+	SUDO_USER="${FIRST_USER_NAME}" apt purge -y brasero hexchat lxterminal mpv gnote rhythmbox sound-juicer labwc
+	SUDO_USER="${FIRST_USER_NAME}" apt purge -y lxlock light-locker xscreensaver pavucontrol barrier cheese simple-scan
+	SUDO_USER="${FIRST_USER_NAME}" rm -f /usr/share/applications/software-properties-gtk.desktop
+	SUDO_USER="${FIRST_USER_NAME}" rm -f /usr/share/applications/mediainfo-gui.desktop
+	SUDO_USER="${FIRST_USER_NAME}" apt autoremove -y
+	SUDO_USER="${FIRST_USER_NAME}" apt install -f
 
 EOF

@@ -1,3 +1,26 @@
+# stage3 original
+gstreamer1.0-x gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-alsa gstreamer1.0-libav
+evince gtk2-engines alsa-utils
+desktop-base
+git
+policykit-1
+gvfs
+rfkill
+chromium-browser rpi-chromium-mods libwidevinecdm0
+firefox rpi-firefox-mods
+gldriver-test
+fonts-droid-fallback
+fonts-liberation2
+#obconf
+#arandr
+libcamera-tools
+rpicam-apps
+python3-picamera2
+python3-pyqt5
+python3-opengl
+vulkan-tools mesa-vulkan-drivers
+
+# stage4 original
 python3-pygame
 python3-tk 
 #thonny
@@ -5,10 +28,13 @@ python3-pgzero
 python3-serial
 #debian-reference-en 
 #dillo
-raspberrypi-net-mods raspberrypi-ui-mods
+raspberrypi-net-mods 
+#raspberrypi-ui-mods
 python3-pip
 python3-numpy
-alacarte rc-gui sense-hat
+#alacarte 
+#rc-gui 
+sense-hat
 tree
 libgl1-mesa-dri libgles1 libgles2-mesa xcompmgr
 #geany
@@ -17,24 +43,24 @@ python3-twython
 python3-flask
 pprompt
 piwiz
-rp-prefapps
+#rp-prefapps
 ffmpeg
 #vlc
-rpi-connect
+#rpi-connect
 rpi-imager
-labwc
+#labwc
 
 # ninja-build and openocd needed for vscode pico extension
 meson openocd
 
-# For hamonikr
+# Custom for hamonikr
 hunspell-en-gb
 hyphen-en-gb
 wamerican
 wbritish
 albert
 asbru-cm
-barrier
+# barrier
 cinnamon-desktop-environment
 cinnamon-l10n
 cockpit
