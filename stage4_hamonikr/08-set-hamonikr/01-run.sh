@@ -62,12 +62,16 @@ on_chroot << EOF
 		SUDO_USER="${FIRST_USER_NAME}" update-initramfs -u
 	fi
 
-	SUDO_USER="${FIRST_USER_NAME}" apt purge -y mousepad gedit orca openbox rp-bookshelf pcmanfm totem pidgin rp-prefapps malcontent-gui
+	SUDO_USER="${FIRST_USER_NAME}" apt purge -y mousepad orca openbox rp-bookshelf pcmanfm totem pidgin rp-prefapps malcontent-gui
 	SUDO_USER="${FIRST_USER_NAME}" apt purge -y brasero hexchat lxterminal mpv gnote rhythmbox sound-juicer labwc
 	SUDO_USER="${FIRST_USER_NAME}" apt purge -y lxlock light-locker xscreensaver pavucontrol barrier cheese simple-scan
 	SUDO_USER="${FIRST_USER_NAME}" rm -f /usr/share/applications/software-properties-gtk.desktop
 	SUDO_USER="${FIRST_USER_NAME}" rm -f /usr/share/applications/mediainfo-gui.desktop
 	SUDO_USER="${FIRST_USER_NAME}" apt autoremove -y
 	SUDO_USER="${FIRST_USER_NAME}" apt install -f
+
+	echo "Update conky autostart settings..."
+	SUDO_USER="${FIRST_USER_NAME}" rm -f "/home/${FIRST_USER_NAME}/.hamonikr/theme/conky.done"
+	SUDO_USER="${FIRST_USER_NAME}" sudo -u "${FIRST_USER_NAME}" /usr/local/bin/pre-cinnamon-run.sh
 
 EOF
