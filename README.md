@@ -132,4 +132,4 @@ ref : https://github.com/RPi-Distro/pi-gen
 * 이전에 성공적으로 구축된 단계에 SKIP 파일 추가
 * 마지막 단계 수정
 * 마지막 단계만 재구축(Rebuilding): `sudo CLEAN=1 ./build.sh`
-* 이미지에 만족하면 SKIP_IMAGEs 파일을 제거하고 이미지를 내보내 테스트할 수 있습니다.
+* 이미지에 만족하면 SKIP_IMAGES 파일을 제거하고 이미지를 내보내 테스트할 수 있습니다.

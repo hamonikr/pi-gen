@@ -56,10 +56,14 @@ on_chroot << EOF
 		SUDO_USER="${FIRST_USER_NAME}" update-alternatives --set x-session-manager /usr/bin/cinnamon-session
 	fi
 
-	if [ -f "/usr/share/plymouth/themes/hamonikr-black/hamonikr-black.plymouth" ] && [ -f "/etc/hamonikr/info" ]; then
-		echo "Set plymouth theme as hamonikr-black..."
-		SUDO_USER="${FIRST_USER_NAME}" plymouth-set-default-theme hamonikr-black
-		SUDO_USER="${FIRST_USER_NAME}" update-initramfs -u
+	if [ -f "/usr/share/plymouth/themes/hamonikr-flame/hamonikr-flame.plymouth" ]; then
+		echo "Set plymouth theme as hamonikr-flame..."
+		SUDO_USER="${FIRST_USER_NAME}" apt install -y rpd-plym-splash
+		SUDO_USER="${FIRST_USER_NAME}" raspi-config nonint do_boot_splash 0
+		SUDO_USER="${FIRST_USER_NAME}" sed -i ''s/Theme=.*$/Theme=hamonikr-flame/g'' /usr/share/plymouth/plymouthd.defaults
+		SUDO_USER="${FIRST_USER_NAME}" plymouth-set-default-theme hamonikr-flame
+		SUDO_USER="${FIRST_USER_NAME}" plymouth-set-default-theme
+		SUDO_USER="${FIRST_USER_NAME}" update-initramfs -u 
 	fi
 
 	SUDO_USER="${FIRST_USER_NAME}" apt purge -y mousepad orca openbox rp-bookshelf pcmanfm totem pidgin rp-prefapps malcontent-gui
@@ -71,7 +75,7 @@ on_chroot << EOF
 	SUDO_USER="${FIRST_USER_NAME}" apt install -f
 
 	echo "Update conky autostart settings..."
-	SUDO_USER="${FIRST_USER_NAME}" rm -f "/home/${FIRST_USER_NAME}/.hamonikr/theme/conky.done"
-	SUDO_USER="${FIRST_USER_NAME}" sudo -u "${FIRST_USER_NAME}" /usr/local/bin/pre-cinnamon-run.sh
+	#SUDO_USER="${FIRST_USER_NAME}" rm -f "/home/${FIRST_USER_NAME}/.hamonikr/theme/conky.done"
+	#SUDO_USER="${FIRST_USER_NAME}" sudo -u "${FIRST_USER_NAME}" /usr/local/bin/pre-cinnamon-run.sh
 
 EOF
